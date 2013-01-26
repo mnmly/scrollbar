@@ -80,6 +80,7 @@ Scrollbar.prototype.setupStyles = function( ) {
 
 Scrollbar.prototype.bind = function( ) {
   events( this.container, this ).bind( 'mousewheel' );
+  events( this.container, this ).bind( 'DOMMouseScroll', 'onmousewheel' );
 };
 
 /**
@@ -104,8 +105,10 @@ Scrollbar.prototype.updateHeight = function( ) {
  */
 
 Scrollbar.prototype.onmousewheel = function( e ) {
-  var bottom;
-  this.scrollTop -= e.wheelDelta / 120 * 40;
+
+  var bottom,
+      delta = e.wheelDelta ? e.wheelDelta / 120 : -e.detail / 3;
+  this.scrollTop -= delta * 40;
   bottom = this.scrollHeight - this.height;
   if( this.scrollTop < 0 ){      this.scrollTop = 0; }
   if( this.scrollTop > bottom ){ this.scrollTop = bottom; }
