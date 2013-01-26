@@ -1,0 +1,1 @@
+module.exports = '<div class=\'scroll-box\'>\n  <div class=\'thumb\'></div>\n  <div class=\'view\'></div>\n</div>\n';

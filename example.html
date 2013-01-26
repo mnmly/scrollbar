@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Example</title>
+    <link rel="stylesheet" href="build/build.css" type="text/css" media="all" />
+    <script src="build/build.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css" media="all">
+      body{
+        padding-top: 100px;
+        font-family: "Helvetica Neue", sans-serif;
+      }
+      .scroll-box{
+        margin: 0 auto;
+        display: block;
+      }
+      .me{
+        width: 100px;
+        height: 100px;
+      }
+
+    </style>
+  </head>
+  <body>
+    
+    <div class='me'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla magna ut nibh hendrerit non egestas neque auctor.
+    </div>
+
+    <script type="text/javascript" charset="utf-8">
+      var Scrollbar = require( 'scrollbar' );
+      var me = document.querySelector( '.me' );
+      scrollbar = new Scrollbar( me );
+    </script>
+  </body>
+</html>

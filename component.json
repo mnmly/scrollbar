@@ -1,0 +1,21 @@
+{
+  "name": "scrollbar",
+  "repo": "mnmly/scrollbar",
+  "description": "Browser agnostic scrollbar",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/css": "*",
+    "component/events": "*",
+    "component/domify": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "scrollbar.css"
+  ]
+}
