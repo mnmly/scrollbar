@@ -2,7 +2,7 @@
   position: relative;
   display: inline-block;
 }
-.scroll-box .view{
+.scroll-box .content-view{
   overflow: hidden;
 }
 
