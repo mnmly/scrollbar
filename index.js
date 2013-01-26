@@ -18,12 +18,13 @@ module.exports = Scrollbar;
  * @param {Element} el Element to attach scroll bar
  */
 
-function Scrollbar( el ) {
+function Scrollbar( el, option ) {
   
   if( !( this instanceof Scrollbar ) ) return new Scrollbar( el );
   if( !el ) throw new TypeError( 'element is required' );
   
   this.el        = el;
+  this.option    = option || { padding: 0 };
   this.scrollTop = 0;
   this.container = domify( template )[0];
   this.view      = this.container.querySelector( '.content-view' );
@@ -63,6 +64,7 @@ Scrollbar.prototype.setupStyles = function( ) {
   
   this.updateHeight();
   css( this.thumb, {
+    top: this.option.padding,
     height: this.thumbHeight,
   } );
 
@@ -93,7 +95,7 @@ Scrollbar.prototype.bind = function( ) {
 
 Scrollbar.prototype.updateHeight = function( ) {
   this.scrollHeight = this.view.scrollHeight;
-  this.thumbHeight  = Math.round( this.height / this.scrollHeight * this.height );
+  this.thumbHeight  = Math.round( this.height / this.scrollHeight * this.height ) - this.option.padding * 2;
 };
 
 /**
@@ -106,15 +108,15 @@ Scrollbar.prototype.updateHeight = function( ) {
 
 Scrollbar.prototype.onmousewheel = function( e ) {
 
-  var bottom,
+  var bottom = this.scrollHeight - this.height,
       delta = e.wheelDelta ? e.wheelDelta / 120 : -e.detail / 3;
+
   this.scrollTop -= delta * 40;
-  bottom = this.scrollHeight - this.height;
-  if( this.scrollTop < 0 ){      this.scrollTop = 0; }
+  if( this.scrollTop < 0 ){ this.scrollTop = 0; }
   if( this.scrollTop > bottom ){ this.scrollTop = bottom; }
 
   css( this.thumb, {
-    top: Math.round( this.scrollTop / this.scrollHeight * ( this.height ) )
+    top: Math.round( this.scrollTop / this.scrollHeight * ( this.height ) + this.option.padding )
   } );
 
   this.el.style.top = -this.scrollTop + 'px';

@@ -12,6 +12,10 @@
       .scroll-box{
         margin: 0 auto;
         display: block;
+
+      }
+      .content-view{
+        outline: 1px solid;
       }
       .me{
         width: 100px;
@@ -29,7 +33,7 @@
     <script type="text/javascript" charset="utf-8">
       var Scrollbar = require( 'scrollbar' );
       var me = document.querySelector( '.me' );
-      scrollbar = new Scrollbar( me );
+      scrollbar = new Scrollbar( me, { padding: 5 } );
     </script>
   </body>
 </html>

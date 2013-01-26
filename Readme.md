@@ -12,9 +12,11 @@
   - [Scrollbar()](#scrollbar)
   - [Scrollbar.updateHeight()](#scrollbarupdateheight)
 
-## Scrollbar( el )
+## Scrollbar( el, [option] )
   
   Create scrollbar content with `el`.
+  Optionally pass `padding` to specify the distance 
+  of thumb from top or bottom of the container.
 
 ## Scrollbar.updateHeight()
 
