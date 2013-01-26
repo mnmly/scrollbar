@@ -26,7 +26,7 @@ function Scrollbar( el ) {
   this.el        = el;
   this.scrollTop = 0;
   this.container = domify( template )[0];
-  this.view      = this.container.querySelector( '.view' );
+  this.view      = this.container.querySelector( '.content-view' );
   this.thumb     = this.container.querySelector( '.thumb' );
   this.width     = this.el.clientWidth,
   this.height    = this.el.clientHeight,
